@@ -7,9 +7,16 @@
     <title>Learning react</title>
 </head>
 <body>
-    <div>
-        <h1>Hello World!</h1>
+    <div id="root">
+        
     </div>
     
+    <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World! printed using Javascript.";
+
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+    </script>
 </body>
 </html>
