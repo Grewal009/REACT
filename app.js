@@ -12,12 +12,37 @@
          *      div id = child
          *                  <h1></h1>
          *      /div
+         *       div id = child2
+         *                  <h1></h1>
+         *      /div
          * /div
          * 
          */
     
-        const child = React.createElement("div", {id:"child"}, heading);
-        const parent = React.createElement("div", {id:"parent"}, child);
+        const parent = React.createElement(
+                "div",
+                {id:"parent"},
+                [
+                        React.createElement(
+                                "div",
+                                {id:"child1", key:"child 01", xyx:"1"},
+                                React.createElement(
+                                        "h1",
+                                        {},
+                                        "Heading 1"
+                                )
+                        ),
+                        React.createElement(
+                                "div",
+                                {id:"child2",key:"child 02", xyz:"2"},
+                                React.createElement(
+                                        "h1",
+                                        {},
+                                        "Heading 2"
+                                )
+                        )
+                ]
+        );
 
 
         const root = ReactDOM.createRoot(document.getElementById("root"));
