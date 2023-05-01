@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 
         //heading is an object or react element
         const heading = React.createElement(
