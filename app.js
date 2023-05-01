@@ -31,7 +31,7 @@ import ReactDOM from "react-dom/client";
                                 React.createElement(
                                         "h1",
                                         {},
-                                        "Heading 1"
+                                        "Heading 1 -->"
                                 )
                         ),
                         React.createElement(
@@ -40,7 +40,7 @@ import ReactDOM from "react-dom/client";
                                 React.createElement(
                                         "h1",
                                         {},
-                                        "Heading 2"
+                                        "Heading 2 -->"
                                 )
                         )
                 ]
