@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const title = <h1>Learning React 🚀</h1>
+
 const Heading1 = () => <h3>React Functional Component2</h3>;
 
 const Heading2 = () => {
@@ -14,8 +16,11 @@ const Heading2 = () => {
 
 const heading = (
   <React.Fragment>
+    {title}
+    <Heading1/>
     <Heading1/>
     <Heading1></Heading1>
+    {Heading1()}
     {Heading1()}
   </React.Fragment>
 );
