@@ -13,10 +13,11 @@ const Heading2 = () => {
 };
 
 const heading = (
-  <div>
-    <h1>React Element</h1>
-    <Heading2 />
-  </div>
+  <React.Fragment>
+    <Heading1/>
+    <Heading1></Heading1>
+    {Heading1()}
+  </React.Fragment>
 );
 console.log(heading);
 
