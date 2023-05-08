@@ -15,6 +15,11 @@ The array returned by useState always has exactly two items.
 State is private to the component. If you render it in two places, each copy gets its own state.
 
 
+        IMPORTANT
+ *****--------------*****
+A state variable is only necessary to keep information between re-renders of a component. Within a single event handler, a regular variable will do fine. Don’t introduce state variables when a regular variable works well.
+
+
 
 Examples of expressions that can be converted to false are:
 false;
