@@ -1,0 +1,27 @@
+Hooks:
+
+function starting with "use" and can only be called at the top level of component. we can´t call hook inside conditions, loops or other nested functions. 
+
+1. useState
+
+const [index, setIndex] = useState(0);
+
+index is local state variable. 
+setIndex is setter function. The setter function update the state variable and trigger React to render the component agian. 
+0 is initial value.
+[] is array destructuring and let us to read values from an array.
+The array returned by useState always has exactly two items.
+
+State is private to the component. If you render it in two places, each copy gets its own state.
+
+
+
+Examples of expressions that can be converted to false are:
+false;
+null;
+NaN;
+0;
+empty string ("" or '' or ``);
+undefined.
+
+
