@@ -30,3 +30,36 @@ empty string ("" or '' or ``);
 undefined.
 
 
+        Adding Event Handlers
+*****---------------------------*****
+You defined the function i.e handleClick and then passed it as a prop to html tag eg: <button>
+handleClick is an event handler. They are:
+-> usually defined inside your components.
+-> Have names that start with handle, followed by the name of the event.
+
+eg: onClick={handleClick}, onMouseEnter={handleMouseEnter}
+
+Alternatively, we can define an event handler inline in the JSX:
+<button onClick={function handleClick(){
+        alert('You clicked me!');
+}}>
+
+or, using an arrow function:
+<button onClick={
+        ()=>{
+                alert('You clicked me');
+        }
+}>
+
+All these styles are equivalent. Generally, inline event handler are convenient for short functions.
+
+Important points to remember:
+1. Functions passed to event handler must be passed, not called.
+eg: <button onClick={handleClick}>    (correct)
+    <button onClick={handleClick()}>  (incorrect)
+
+In the first example, the handleClick function is passed as an onClick event handler. This tells React to remember it and only call your function when thw user clicks the button.
+
+In the secomd example, the () at the end of handleClick() fires the function immediately during rendering, without any clicks. This is because Javascript inside the JSX in {} execute right away.
+
+
