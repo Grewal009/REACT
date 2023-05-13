@@ -29,8 +29,8 @@ const RestaurantContainer = () => {
     return(
 
         <React.Fragment>
-            <div className='flex justify-center'>
-                <div>
+            <div className='flex flex-wrap justify-center'>
+                <div className='my-2'>
                     <input type='text' name='searchTxt' value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} className='w-48 h-10 bg-slate-200 px-2 py-1 border-transparent border-gray-500 rounded-tl-2xl rounded-bl-2xl rounded-tr-none rounded-t
                     br-none text-lg font-medium focus:rounded-tl-2xl focus:rounded-bl-2xl focus:rounded-tr-none focus:rounded-br-none border-r-0' />
 
@@ -38,7 +38,7 @@ const RestaurantContainer = () => {
 
                 </div>
 
-                <div className='ml-5'>
+                <div className='my-2 ml-5'>
                     {
                         (showRating)
                         ?(<button className='w-36 px-3 py-1 bg-yellow-600 text-yellow-100 rounded-md hover:bg-yellow-100 hover:text-yellow-600 border-4 border-transparent hover:border-4 hover:border-yellow-600'
