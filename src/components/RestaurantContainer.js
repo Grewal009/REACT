@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import RestaurantCard from "./RestaurantCard";
 import { restList } from "../utils/mockData";
 import {AiOutlineSearch} from 'react-icons/ai';
@@ -7,10 +7,8 @@ import {AiOutlineSearch} from 'react-icons/ai';
 function filterDate(searchText, allRest){
    return allRest.filter(
         (restaurant)=>restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
-           
         
     );
-
 }
 
 const RestaurantContainer = () => {
@@ -18,11 +16,27 @@ const RestaurantContainer = () => {
     console.log(restList);
 
     const [allRest, setAllRest] = useState(restList);
+    useEffect(
+        ()=>{
+            getRestaurants();
+        },[]
+    );
+
     const [rest, setRest] = useState(restList);
     const [filterRest, setFilterRest] = useState(restList);
 
     const [showRating, setShowRating] = useState(true);
     const [searchText, setSearchText] = useState("");
+
+    async function getRestaurants(){
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7016176&lng=76.820049&page_type=DESKTOP_WEB_LISTING");
+
+        const json = await data.json();
+        console.log(json);
+        setRest(json?.data?.cards[2]?.data?.data?.cards);
+        setFilterRest(json?.data?.cards[2]?.data?.data?.cards);
+        setAllRest(json?.data?.cards[2]?.data?.data?.cards);
+    }
 
     function allRestaurants(){
         //setRest(filterRest);

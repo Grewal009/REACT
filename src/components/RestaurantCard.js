@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
 
     return(
         <div className="flex flex-nowrap">
-            <div className="w-[230px] h-80 mx-1 my-1 p-1 bg-gray-300 border-4 border-transparent hover:border-orange-300 rounded-md">
+            <div className="w-[230px] h-80 mx-1 my-1 p-1  border-2 border-transparent hover:border-gray-500 hover:shadow-md rounded-md">
                 <img className="rounded-t-md" src={CDN_URL+cloudinaryImageId}/>
 
                 <div className="">
