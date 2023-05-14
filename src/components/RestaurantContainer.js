@@ -4,27 +4,44 @@ import { restList } from "../utils/mockData";
 import {AiOutlineSearch} from 'react-icons/ai';
 
 
+function filterDate(searchText, allRest){
+   return allRest.filter(
+        (restaurant)=>restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+           
+        
+    );
+
+}
+
 const RestaurantContainer = () => {
     
     console.log(restList);
 
+    const [allRest, setAllRest] = useState(restList);
     const [rest, setRest] = useState(restList);
+    const [filterRest, setFilterRest] = useState(restList);
+
     const [showRating, setShowRating] = useState(true);
     const [searchText, setSearchText] = useState("");
 
     function allRestaurants(){
-        setRest(restList);
+        //setRest(filterRest);
+        setFilterRest(rest)
         setShowRating(!showRating);
     }
 
     function fourPlusRating(){
-     const fourPlusRatingRestaurants = restList.filter(
+        setRest(filterRest);
+     const fourPlusRatingRestaurants = filterRest.filter(
             (res)=> res.data.avgRating > 4
         );
+    
     console.log(fourPlusRatingRestaurants);
-    setRest(fourPlusRatingRestaurants);
+    setFilterRest(fourPlusRatingRestaurants);
     setShowRating(!showRating);
     }
+
+
 
     return(
 
@@ -34,9 +51,19 @@ const RestaurantContainer = () => {
                     <input type='text' name='searchTxt' value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} className='w-48 h-10 bg-slate-200 px-2 py-1 border-transparent border-gray-500 rounded-tl-2xl rounded-bl-2xl rounded-tr-none rounded-t
                     br-none text-lg font-medium focus:rounded-tl-2xl focus:rounded-bl-2xl focus:rounded-tr-none focus:rounded-br-none border-r-0' />
 
-                    <button  className='w-20 h-10  border-1 border-transparent bg rounded-tr-2xl rounded-br-2xl text-lg font-medium bg-slate-300 hover:bg-slate-400'>Search</button>
+                    <button onClick={
+                        ()=>{
+                        const data1 = filterDate(searchText,allRest);
+                        console.log('data1',data1);
+                        console.log('allrest', allRest);
+                        console.log('searchText',searchText);
+                        setFilterRest(data1);
+
+                    }
+                    } className='w-20 h-10  border-1 border-transparent bg rounded-tr-2xl rounded-br-2xl text-lg font-medium bg-slate-300 hover:bg-slate-400'>Search</button>
 
                 </div>
+                
 
                 <div className='my-2 ml-5'>
                     {
@@ -54,7 +81,7 @@ const RestaurantContainer = () => {
 
             <div className="flex flex-wrap justify-center">
                 {
-                    rest.map((restaurant)=>(<RestaurantCard key={restaurant.data.id} restData={restaurant}/>))
+                    filterRest.map((restaurant)=>(<RestaurantCard key={restaurant.data.id} restData={restaurant}/>))
                 }
                 
             </div>
