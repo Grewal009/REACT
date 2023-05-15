@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import RestaurantCard from "./RestaurantCard";
 import { restList } from "../utils/mockData";
 import {AiOutlineSearch} from 'react-icons/ai';
+import ShimmerUI from './ShimmerUI';
 
 
 function filterDate(searchText, allRest){
@@ -15,15 +16,15 @@ const RestaurantContainer = () => {
     
     console.log(restList);
 
-    const [allRest, setAllRest] = useState(restList);
+    const [allRest, setAllRest] = useState([]);
     useEffect(
         ()=>{
             getRestaurants();
         },[]
     );
 
-    const [rest, setRest] = useState(restList);
-    const [filterRest, setFilterRest] = useState(restList);
+    const [rest, setRest] = useState([]);
+    const [filterRest, setFilterRest] = useState([]);
 
     const [showRating, setShowRating] = useState(true);
     const [searchText, setSearchText] = useState("");
@@ -57,7 +58,7 @@ const RestaurantContainer = () => {
 
 
 
-    return(
+    return (filterRest.length === 0) ? (<ShimmerUI />) : (
 
         <React.Fragment>
             <div className='flex flex-wrap justify-center'>

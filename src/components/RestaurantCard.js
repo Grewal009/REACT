@@ -5,7 +5,7 @@ import {AiFillStar} from 'react-icons/ai';
 const RestaurantCard = (props) => {
     const {restData} = props;
 
-    const {name, cloudinaryImageId, cuisines, avgRating} = restData.data;
+    const {name, cloudinaryImageId, cuisines, avgRating=2.0} = restData.data;
 
     return(
         <div className="flex flex-nowrap">
@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
 
                 <div className="">
                     <div className="w-14 p-1 flex justify-center items-center bg-yellow-600 relative top-1 left-[158px]">
-                        <h3 className="mr-1 text-xs font-bold text-yellow-100">{avgRating} </h3>
+                        <h3 className="mr-1 text-xs font-bold text-yellow-100">{avgRating === "--"? 2.1 : avgRating} </h3>
                         <span><AiFillStar size={18} className="text-yellow-100"/></span>
                     </div>
 
