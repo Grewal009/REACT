@@ -8,7 +8,7 @@ const ShimmerUI = () => {
       Array(10).fill("").map((card, index)=>
         
       
-          <div className="">
+          <div className="" key={index}>
             <div className="w-[230px] h-80 mx-1 my-1 p-1  border-2 border-transparent hover:border-gray-500 hover:shadow-md rounded-md">
                 <img className="h-[137.320] w-[218] rounded-t-md bg-gray-300"/>
 
