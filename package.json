@@ -4,7 +4,7 @@
   "description": "Learning React",
   "scripts": {
     "start": "parcel index.html",
-    "bulid": "parcel index.html",
+    "build": "parcel index.html",
     "test": "jest"
   },
   "author": "",
