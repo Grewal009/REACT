@@ -7,7 +7,10 @@ const Header = () => {
             <div className="h-20 w-full p-2 bg-orange-300">
 
                 <div className='flex justify-between items-center'>
-                    <GiHotMeal size={60} className='mx-2 text-amber-900 bg-green-400'/>
+                    <a href='/'>
+                        <GiHotMeal size={60} className='mx-2 text-amber-900 bg-green-400'/>
+                    </a>
+                    
                 
                 <div className='flex justify-start'>
                     <ul className='flex'>
