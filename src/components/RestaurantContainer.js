@@ -106,6 +106,7 @@ const RestaurantContainer = () => {
                 </div>
             </div>
             {
+                //showing text searched in search box
             (prevSearchText === "")
             ? null
             : <h1 className="flex flex-wrap justify-center">Showing result: {prevSearchText}</h1>
