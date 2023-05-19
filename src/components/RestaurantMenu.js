@@ -39,7 +39,7 @@ const RestaurantMenu = () => {
               <img src={CDN_URL+restaurant?.cards[0]?.card?.card?.info?.cloudinaryImageId}/>
              */
            }
-            <h2>cuisines : {restaurant?.cards[0]?.card?.card?.info?.cuisines.join(', ')}</h2>
+            <h2>cuisines : {restaurant?.cards[0]?.card?.card?.info?.cuisines?.join(', ')}</h2>
 
             <h2>Menu:</h2>
 
@@ -48,7 +48,10 @@ const RestaurantMenu = () => {
                 {
                     restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
                         (rest)=>(<li key={rest.card.info.id}>{rest.card.info.name}
-                        <img src={CDN_URL+ rest.card.info.imageId} className='w-32 '/>
+                        <img src={
+                            CDN_URL+ rest?.card?.info?.imageId
+                        
+                        } className='w-32 '/>
                         </li>)
                     )
                 }

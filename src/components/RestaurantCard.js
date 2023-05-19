@@ -22,7 +22,7 @@ const RestaurantCard = (props) => {
 
 
                 <h1 className="w-40 text-sm font-bold leading-4 relative -top-4 left-0">{name}</h1>
-                <h2 className="w-50 -mt-2 text-xs leading-4">{cuisines.join(', ')}</h2>
+                <h2 className="w-50 -mt-2 text-xs leading-4">{cuisines?.join(', ')}</h2>
                 
 
             </div>

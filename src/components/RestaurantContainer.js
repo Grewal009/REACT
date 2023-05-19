@@ -3,7 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { restList } from "../utils/mockData";
 import {AiOutlineSearch} from 'react-icons/ai';
 import ShimmerUI from './ShimmerUI';
-
+import {Link} from 'react-router-dom';
 
 function filterDate(searchText, allRest){
    return allRest.filter(
@@ -62,7 +62,7 @@ const RestaurantContainer = () => {
     }
     //early return
     if(!allRest){
-        return null;
+        return <ShimmerUI />;
     }
 
     return (allRest.length === 0) ? (<ShimmerUI />) : (
@@ -119,7 +119,11 @@ const RestaurantContainer = () => {
                 (filterRest.length === 0)
                     ? <h1>No result found.</h1>
                     :
-                    filterRest.map((restaurant)=>(<RestaurantCard key={restaurant.data.id} restData={restaurant}/>))
+                    filterRest.map((restaurant)=>(
+                    <Link to={"/restaurant/" + restaurant?.data?.id} key={restaurant?.data?.id}>
+                    <RestaurantCard  restData={restaurant}/>
+                    </Link>
+                    ))
                 }
                 
             </div>
