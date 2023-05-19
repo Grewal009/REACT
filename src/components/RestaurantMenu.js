@@ -31,9 +31,9 @@ const RestaurantMenu = () => {
         <div>
             <h1>{id}</h1>
             <h2>{restaurant?.cards[0]?.card?.card?.info?.name}</h2>
-            <h2>{restaurant?.cards[0]?.card?.card?.info?.areaName}, {restaurant?.cards[0]?.card?.card?.info?.city}</h2>
-            <h2>Average Rating {restaurant?.cards[0]?.card?.card?.info?.avgRating}</h2>
-            <h2>Total Rating {restaurant?.cards[0]?.card?.card?.info?.totalRatings/1000}K+ ratings</h2>
+            <h3>{restaurant?.cards[0]?.card?.card?.info?.areaName}, {restaurant?.cards[0]?.card?.card?.info?.city}</h3>
+            <h4>Average Rating {restaurant?.cards[0]?.card?.card?.info?.avgRating}</h4>
+            <h5>Total Rating {restaurant?.cards[0]?.card?.card?.info?.totalRatings/1000}K+ ratings</h5>
            {
             /**
               <img src={CDN_URL+restaurant?.cards[0]?.card?.card?.info?.cloudinaryImageId}/>
@@ -47,7 +47,9 @@ const RestaurantMenu = () => {
             <ul>
                 {
                     restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
-                        (rest)=>(<li key={rest.card.info.id}>{rest.card.info.name}</li>)
+                        (rest)=>(<li key={rest.card.info.id}>{rest.card.info.name}
+                        <img src={CDN_URL+ rest.card.info.imageId} className='w-32 '/>
+                        </li>)
                     )
                 }
             </ul>
