@@ -11,7 +11,10 @@ import RestaurantMenu from "./components/RestaurantMenu";
 const App = () => {
   return(
     <div>
-      <Header />
+      {
+       //<Header />
+      }
+      
       <Outlet />
 
     </div>

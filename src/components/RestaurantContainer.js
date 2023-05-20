@@ -39,9 +39,9 @@ const RestaurantContainer = () => {
 
         const json = await data.json();
         console.log(json);
-        setRest(json?.data?.cards[1]?.data?.data?.cards);
-        setFilterRest(json?.data?.cards[1]?.data?.data?.cards);
-        setAllRest(json?.data?.cards[1]?.data?.data?.cards);
+        setRest(json?.data?.cards[2]?.data?.data?.cards);
+        setFilterRest(json?.data?.cards[2]?.data?.data?.cards);
+        setAllRest(json?.data?.cards[2]?.data?.data?.cards);
     }
 
     function allRestaurants(){
