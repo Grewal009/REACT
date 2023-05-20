@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import { CDN_URL } from '../utils/constants';
 import ShimmerUI from './ShimmerUI';
+import errorImage from '../assets/images/404-error-1.png';
+import noImageAvailable from '../assets/images/no-image-available-200.jpg';
 
 const RestaurantMenu = () => {
     const params = useParams();
@@ -49,9 +51,12 @@ const RestaurantMenu = () => {
                     restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
                         (rest)=>(<li key={rest.card.info.id}>{rest.card.info.name}
                         <img src={
-                            CDN_URL+ rest?.card?.info?.imageId
+                            CDN_URL+ rest.card.info.imageId 
                         
-                        } className='w-32 '/>
+                        }
+                        className='w-32 '/>
+                        
+                        <h1>{console.log(CDN_URL+ rest.card.info.imageId )}</h1>
                         </li>)
                     )
                 }
