@@ -5,10 +5,13 @@ import {AiOutlineSearch} from 'react-icons/ai';
 import ShimmerUI from './ShimmerUI';
 import {Link} from 'react-router-dom';
 import { filterDate } from '../utils/helper';
+import useOnline from '../utils/useOnline';
 
 
 
 const RestaurantContainer = () => {
+
+    const online = useOnline();
     
     console.log(restList);
 
@@ -91,15 +94,25 @@ const RestaurantContainer = () => {
                 <div className='my-2 ml-5'>
                     {
                         (showRating)
-                        ?(<button className='w-36 px-3 py-1 bg-yellow-600 text-yellow-100 rounded-md hover:bg-yellow-100 hover:text-yellow-600 border-4 border-transparent hover:border-4 hover:border-yellow-600'
+                        ?(<button className='w-32 px-1 py-1 bg-yellow-600 text-yellow-100 rounded-md hover:bg-yellow-100 hover:text-yellow-600 border-4 border-transparent hover:border-4 hover:border-yellow-600'
                         onClick={fourPlusRating}
                         >4+ rating</button>)
-                        :(<button className='w-36 px-3 py-1 bg-yellow-600 text-yellow-100 rounded-md hover:bg-yellow-100 hover:text-yellow-600 border-4 border-transparent hover:border-4 hover:border-yellow-600'
+                        :(<button className='w-32 px-1 py-1 bg-yellow-600 text-yellow-100 rounded-md hover:bg-yellow-100 hover:text-yellow-600 border-4 border-transparent hover:border-4 hover:border-yellow-600'
                         onClick={allRestaurants}
                         >All Restaurant</button>)
                     }
-
                 </div>
+                
+                <div className='w-5 flex justify-center items-center ml-4'>
+                    <h1>
+                    {
+                        online
+                        ? "🟢"
+                        : "🛑"  
+                    }
+                    </h1>
+                </div>
+
             </div>
             {
                 //showing text searched in search box
