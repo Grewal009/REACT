@@ -4,13 +4,9 @@ import { restList } from "../utils/mockData";
 import {AiOutlineSearch} from 'react-icons/ai';
 import ShimmerUI from './ShimmerUI';
 import {Link} from 'react-router-dom';
+import { filterDate } from '../utils/helper';
 
-function filterDate(searchText, allRest){
-   return allRest.filter(
-        (restaurant)=>restaurant?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-        
-    );
-}
+
 
 const RestaurantContainer = () => {
     
