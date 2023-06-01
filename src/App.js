@@ -1,12 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import About from "./components/About";
+//import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import ShimmerUI from "./components/ShimmerUI";
+
+//Code Splitting / Chunking / Dymanic Loading / Lazy Loading
+const About = lazy(()=>{ return import("./components/About")});
 
 const App = () => {
   return(
@@ -34,7 +38,9 @@ const appRouter = createBrowserRouter([
       },
       {
         path : '/about',
-        element : <About />,
+        element :<Suspense fallback={<ShimmerUI />}>
+                    <About />
+                  </Suspense> ,
       },
       {
         path : '/contact',
