@@ -5,7 +5,7 @@ const Section = ({heading, para, isVisible, setIsVisible}) => {
         <div>
             <div className="m-2 p-2 border border-gray-500">
                 {
-                    isVisible
+                    !isVisible
                     ?(
                     <div onClick={setIsVisible} className="px-2 flex justify-between items-center bg-slate-200 cursor-pointer">
                         <h3 className=" text-lg font-bold ">{heading}</h3>
