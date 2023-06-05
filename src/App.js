@@ -10,6 +10,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import ShimmerUI from "./components/ShimmerUI";
 import {Provider} from 'react-redux';
 import store from "./utils/store";
+import Cart from "./components/Cart";
 
 //Code Splitting / Chunking / Dymanic Loading / Lazy Loading
 const About = lazy(()=>{ return import("./components/About")});
@@ -52,6 +53,10 @@ const appRouter = createBrowserRouter([
       {
         path : '/restaurant/:id',
         element : <RestaurantMenu />
+      },
+      {
+        path : '/cart',
+        element : <Cart />
       }
     ]
   },
