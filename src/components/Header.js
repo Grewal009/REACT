@@ -12,12 +12,12 @@ const Header = () => {
     const activeLink = "underline underline-offset-4 decoration-lime-600 decoration-4";
 
     return(
-        <div>
-            <div className="h-20 w-full p-2 bg-orange-300">
+        <div className='px-4 border-b-2 shadow-md'>
+            <div className="h-20 w-full p-2  ">
 
                 <div className='flex justify-between items-center '>
                     <a href='/'>
-                        <GiHotMeal size={60} className='mx-2 text-amber-900 bg-green-400'/>
+                        <GiHotMeal size={60} className='mx-2 text-amber-900'/>
                     </a>
                     
                 
@@ -48,7 +48,7 @@ const Header = () => {
                             {
                                 //<HiShoppingCart size={35} className='mx-2 bg-green-500'/>
                             }
-                        <li className='mx-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems.length} </span>Cart</li>
+                        <li className='mx-2 pr-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems.length} </span>Cart</li>
                     
                     </NavLink>
 
