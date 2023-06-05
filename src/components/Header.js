@@ -1,8 +1,13 @@
 import {GiHotMeal} from 'react-icons/gi';
 import {HiShoppingCart} from 'react-icons/hi';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import store from '../utils/store';
 
 const Header = () => {
+    const cartItems = useSelector(store => store.cart.items);
+    console.log(cartItems);
+
     const normalLink = "";
     const activeLink = "underline underline-offset-4 decoration-lime-600 decoration-4";
 
@@ -36,12 +41,18 @@ const Header = () => {
                         <li className='mx-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'>CONTACT</li>
                         </NavLink>
 
-                    </ul>
+                    
                     <NavLink to="/cart" className={( {isActive} ) =>
                         isActive ? activeLink : normalLink
                          }>
-                    <HiShoppingCart size={35} className='mx-2 bg-green-500'/>
+                            {
+                                //<HiShoppingCart size={35} className='mx-2 bg-green-500'/>
+                            }
+                        <li className='mx-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems.length} </span>Cart</li>
+                    
                     </NavLink>
+
+                    </ul>
                 </div>
 
                     {/** 

@@ -4,11 +4,18 @@ import { CDN_URL } from '../utils/constants';
 import ShimmerUI from './ShimmerUI';
 import errorImage from '../assets/images/404-error-1.png';
 import noImageAvailable from '../assets/images/no-image-available-200.jpg';
+import { addItem } from '../utils/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const RestaurantMenu = () => {
     const params = useParams();
     const {id} = params;
     const [restaurant, setRestaurant] = useState(null);
+
+    const dispatch = useDispatch();
+    const handleAddItem = (rest) => {
+        dispatch(addItem(rest));
+    }
 
     useEffect(
         ()=>{
@@ -76,7 +83,7 @@ const RestaurantMenu = () => {
     console.log(CDN_URL+ rest?.card?.info?.imageId)
 }
 
-                            <button className='w-32 h-9 text-slate-600 bg-green-300 rounded-md hover:font-bold'>Add to cart</button>
+                            <button onClick={()=>handleAddItem(rest)} className='w-32 h-9 text-slate-600 bg-green-300 rounded-md hover:font-bold'>Add to cart</button>
                         </div>
                     </div>
 
