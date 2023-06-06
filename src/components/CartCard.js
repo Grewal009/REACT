@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import { removeItem } from "../utils/cartSlice"; 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { MdDelete } from 'react-icons/md';
+import store from "../utils/store";
 
 const CartCard = ({item}) => {
 
     const [quantity, setQuantity] = useState(1);
     console.log('cart',item);
-    const {name, price, imageId} = item;
+    const {name, price, imageId, id} = item;
+    console.log(id);
     const dispatch = useDispatch();
+    const res = useSelector(store => store.cart.items );
+    console.log("CardCart", res);
 
     function increment(){
         setQuantity(quantity + 1);
@@ -22,6 +27,10 @@ const CartCard = ({item}) => {
         }
     }
 
+    function handleRemoveItem(id){
+        dispatch(removeItem(id));
+    }
+
     
     return(
         <div className="my-4 flex justify-center">
@@ -30,6 +39,8 @@ const CartCard = ({item}) => {
                     <img src={CDN_URL + imageId} className="w-28"/>
                     <h1 className="text-sm font-bold leading-4">{name}</h1>
                 </div>
+
+                <div  className="bg-red-400"><MdDelete size={20} onClick={()=>handleRemoveItem(id)} className="cursor-pointer"/></div>
 
                 <div>
                     <button onClick={()=>decrement(item)} className="w-6 h-6 bg-slate-300 hover:bg-slate-400 font-extrabold">-</button>
