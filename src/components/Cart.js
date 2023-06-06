@@ -9,6 +9,7 @@ import emptyCart from '../assets/images/empty-cart.gif';
 
 const Cart = () => {
     const cartItems = useSelector(store => store.cart.items);
+    const totalPrice = useSelector(store => store.cart.total);
     console.log("cartItems ", cartItems)
     const dispatch = useDispatch();
 
@@ -32,9 +33,11 @@ const Cart = () => {
                     </div>
                     )
                     :
-                    (<div className="my-10 flex justify-center items-center">
-                    <TotalAmt />
-                    <button onClick={()=>handleClearCart()} className="mx-10 px-2 py-1 font-bold rounded-md bg-slate-300 hover:bg-slate-400">Clear Cart</button>
+                    (<div className="my-5 flex flex-col justify-center items-center">
+                        <hr className="w-full border border-slate-400 mb-5 bg-slate-300"/>
+
+                    <p>Total Price: {totalPrice}/-</p>
+                    <button onClick={()=>handleClearCart()} className="my-4 px-2 py-1 font-bold rounded-md bg-slate-300 hover:bg-slate-400">Clear Cart</button>
                     </div>)
                 }
             
