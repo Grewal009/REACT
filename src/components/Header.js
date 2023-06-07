@@ -14,7 +14,7 @@ const Header = () => {
     const handleClick = () => setNav(!nav);
 
     const normalLink = "";
-    const activeLink = "underline underline-offset-4 decoration-lime-600 decoration-4";
+    const activeLink = "underline underline-offset-8 decoration-lime-600 decoration-4";
 
     return(
         <div>
@@ -65,33 +65,43 @@ const Header = () => {
                  * Hamburger Menu
                  */}  
 
+                    <div className='sm:hidden'><NavLink to="/cart" className={( {isActive} ) =>
+                        isActive ? activeLink : normalLink
+                         }>
+                            {
+                                //<HiShoppingCart size={35} className='mx-2 bg-green-500'/>
+                            }
+                        <p className='mt-[2px] text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems?.length} </span>Cart</p>
+                    </NavLink></div>
+
                  <div onClick={handleClick} className='sm:hidden z-20'>
                 {
                     !nav? <FaBars size={30}/> : <FaTimes size={30}/>
                 }
                 </div>          
-                <div className={!nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-slate-100 z-10"}>
+                <div className={!nav ? "hidden" : "sm:hidden absolute top-0 left-0 w-full h-screen bg-slate-100 z-10"}>
                     <ul className='h-screen flex flex-col justify-center items-center'>
                         <NavLink onClick={handleClick} to="/" className={( {isActive} ) =>
                         isActive ? activeLink : normalLink
                          }>
-                        <li className='mx-2 py-1 text-lg font-bold text-gray-600 hover:text-black'>HOME</li>
+                        <li className='mx-2 py-2 text-4xl font-bold text-gray-600 hover:text-black'>HOME</li>
                         </NavLink>
                         
                         <NavLink onClick={handleClick} to="/about" className={( {isActive} ) =>
                         isActive ? activeLink : normalLink
                          }>
-                        <li className='mx-2  py-1 text-lg font-bold text-gray-600 hover:text-black'>ABOUT</li>
+                        <li className='mx-2  py-2 text-4xl font-bold text-gray-600 hover:text-black'>ABOUT</li>
                         </NavLink>
 
                         <NavLink onClick={handleClick} to="/contact" className={( {isActive} ) =>
                         isActive ? activeLink : normalLink
                          }>
-                        <li className='mx-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'>CONTACT</li>
+                        <li className='mx-2 py-2 text-4xl font-bold  text-gray-600 hover:text-black'>CONTACT</li>
                         </NavLink>
 
                     
-                    <NavLink onClick={handleClick} to="/cart" className={( {isActive} ) =>
+                    {/**
+                     <NavLink onClick={handleClick} to="/cart" className={( {isActive} ) =>
                         isActive ? activeLink : normalLink
                          }>
                             {
@@ -100,6 +110,7 @@ const Header = () => {
                         <li className='mx-2 pr-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems?.length} </span>Cart</li>
                     
                     </NavLink>
+                     */}
 
                     </ul>
                 </div>
