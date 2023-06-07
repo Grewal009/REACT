@@ -36,7 +36,10 @@ const Cart = () => {
                     (<div className="my-5 flex flex-col justify-center items-center">
                         <hr className="w-full border border-slate-400 mb-5 bg-slate-300"/>
 
-                    <p>Total Price: {totalPrice}/-</p>
+                    {
+                        //<p>Total Price: {totalPrice}/-</p>
+                    }
+                    
                     <button onClick={()=>handleClearCart()} className="my-4 px-2 py-1 font-bold rounded-md bg-slate-300 hover:bg-slate-400">Clear Cart</button>
                     </div>)
                 }
