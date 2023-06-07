@@ -5,8 +5,7 @@ const cartSlice = createSlice({
     name : 'cart',
     initialState : {
         items : [],
-        amount : 5,
-        total : 999,
+
     },
     reducers : {
         addItem : (state, action) => {
@@ -14,11 +13,13 @@ const cartSlice = createSlice({
         },
         clearCart : (state) => {
             state.items = [];
-            state.amount = 0;
-            state.total = 0;
+
         },
         removeItem : (state, action) => {
-            state.items.pop();
+            //state.items.pop();
+         state.items = state.items.filter(
+                (res)=>res.id !== action.payload
+            );
         }
     }
 

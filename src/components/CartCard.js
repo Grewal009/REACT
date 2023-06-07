@@ -35,20 +35,20 @@ const CartCard = ({item}) => {
     return(
         <div className="my-4 flex justify-center">
             <div className="w-[350px] sm:w-[550px] md:w-[650px] p-1 flex justify-between border-gray-500 items-center shadow-md shadow-slate-800">
-                <div className="w-40 ">
+                <div className="w-28 ">
                     <img src={CDN_URL + imageId} className="w-28"/>
                     <h1 className="text-sm font-bold leading-4">{name}</h1>
                 </div>
 
                 <div  className="bg-red-400"><MdDelete size={20} onClick={()=>handleRemoveItem(id)} className="cursor-pointer"/></div>
 
-                <div>
+                <div className="flex bg-slate-200">
                     <button onClick={()=>decrement(item)} className="w-6 h-6 bg-slate-300 hover:bg-slate-400 font-extrabold">-</button>
-                    <span className="mx-2">{quantity}</span>
+                    <div className="w-8 text-center"><span className="text-sm">{quantity}</span></div>
                     <button onClick={()=>increment()} className="w-6 h-6 bg-slate-300 hover:bg-slate-400 font-extrabold">+</button>
                 </div>
 
-                <div><h2 className="text-sm ">Rs: {(price / 100) * quantity}/-</h2></div>
+                <div className="w-20"><h2 className="text-sm ">Rs: {(price / 100) * quantity}/-</h2></div>
             </div>
         </div>
     )

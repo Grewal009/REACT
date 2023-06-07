@@ -54,7 +54,7 @@ const Header = () => {
                             {
                                 //<HiShoppingCart size={35} className='mx-2 bg-green-500'/>
                             }
-                        <li className='mx-2 pr-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems.length} </span>Cart</li>
+                        <li className='mx-2 pr-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems?.length} </span>Cart</li>
                     
                     </NavLink>
 
@@ -97,7 +97,7 @@ const Header = () => {
                             {
                                 //<HiShoppingCart size={35} className='mx-2 bg-green-500'/>
                             }
-                        <li className='mx-2 pr-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems.length} </span>Cart</li>
+                        <li className='mx-2 pr-2 py-1 text-lg font-bold  text-gray-600 hover:text-black'><span>{cartItems?.length} </span>Cart</li>
                     
                     </NavLink>
 

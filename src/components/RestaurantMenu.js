@@ -83,7 +83,7 @@ const RestaurantMenu = () => {
     console.log(CDN_URL+ rest?.card?.info?.imageId)
 }
 
-                            <button onClick={()=>handleAddItem(rest)} className='w-32 h-9 text-slate-600 bg-green-300 rounded-md hover:font-bold'>Add to cart</button>
+                            <button onClick={()=>handleAddItem(rest.card.info)} className='w-32 h-9 text-slate-600 bg-green-300 rounded-md hover:font-bold'>Add to cart</button>
                         </div>
                     </div>
 
